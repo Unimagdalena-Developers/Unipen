@@ -1,0 +1,254 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Press Start 2P', sans-serif;
+    box-sizing: border-box;
+
+}
+.menu{
+    height: 100vh;
+    width: 100%;
+    background-color: #787878;
+}
+nav{
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    padding-top: 45px;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+.encabezado{
+    background-color: crimson;
+    color: #fafbfd;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px  25px;
+    border-radius: 30px;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 10px  25px;
+}
+
+nav ul li a{
+    color: #fafbfd;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+nav ul li a:hover{
+    color: crimson;
+    transition: 1s;
+}
+
+.x{
+    background-color: crimson;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px  25px;
+    border-radius: 30px;
+    transition: transform .4s;
+}
+
+.x:hover{
+    transform: scale(1.2);
+}
+
+.content{
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translate(-50%);
+}
+
+.Inicio{
+    width: 100%;
+    padding: 100px  0px;
+    background-color: #787878;
+}
+
+.Inicio img{
+    background-color: crimson;
+    height: auto;
+    width: 430px;
+    border-radius: 5%;
+    padding: 10px;
+}
+
+.textoI{
+    width: 550px;
+}
+
+.main{
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.textoI h2{
+    color: #fafbfd;
+    font-size: 75px;
+    padding: 10px;
+}
+
+.textoI h3{
+    color: #fafbfd;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.textoI .rayita{
+    color: crimson;
+    font-size: 30px;
+}
+
+.textoI h4{
+    color: #fafbfd;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.textoI p{
+    color: #fafbfd;
+    padding: 10px;
+}
+
+.info{
+    background: #787878;
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+.cajita{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.tarjeta{
+    height: 365px;
+    width: 335px;
+    background-color: #787878;
+    padding: 20px 35px ;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.tarjeta i{
+    font-size: 50px;
+    display: block;
+    text-align: center;
+    margin: 25px 0px;
+    color: crimson;
+}
+
+h3{
+    color: #fafbfd;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.a{
+    color: #fafbfd;
+    font-size: 16px;
+    line-height: 27px;
+    margin-bottom: 25px;
+}
+.a ul li .rayaE{
+     width: 250px; 
+     height: 20px; 
+     background: crimson;
+}
+
+.a ul li .rayaI{
+    width: 100px; 
+    height: 20px; 
+    background: crimson;
+}
+
+.a ul li .rayaF{
+    width: 20px; 
+    height: 20px; 
+    background: crimson;
+}
+
+.a ul li .rayaR{
+    width: 20px; 
+    height: 20px; 
+    background: crimson;
+}
+
+.a ul li .rayaC{
+    width: 140px; 
+    height: 20px; 
+    background: crimson;
+}
+
+.a ul li .rayaP{
+    width: 120px; 
+    height: 20px; 
+    background: crimson;
+}
+
+.a ul li .rayaA{
+    width: 160px; 
+    height: 20px; 
+    background: crimson;
+}
+
+.a ul li .rayaD{
+    width: 220px; 
+    height: 20px; 
+    background: crimson;
+}
+
+.contacto{
+    width: 100%;
+    height: 290px;
+    background-color: #787878;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contacto h4{
+    color: #fafbfd;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px  25px;
+    border-radius: 30px;
+    transition: transform .4s;
+}
+
+.contacto h4:hover{
+    transform: scale(1.2);
+}
+
+
+.cajita2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 35px ;
+    margin: 30px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+

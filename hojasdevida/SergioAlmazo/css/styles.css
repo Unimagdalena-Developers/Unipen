@@ -1,0 +1,147 @@
+body{
+color: #383838;
+font-weight: 100;
+}
+
+.page{
+    margin: 5% 10% 10%;
+    background: white;
+    box-shadow: -10px -12px 20px -13px gray;
+    margin-left: 300px;
+}
+
+.top-bar{
+    margin: 0;
+    width: 38%;
+    height: 38px;
+    background-color: rgb(21, 148, 157);
+}
+
+.container{
+    margin-left: -80px;
+}
+
+.right-bar{
+    float: right;
+    background-color: rgb(21, 148, 157);
+    width: 38px;
+    height: 690px;
+    margin-top: -38px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 3fr);
+    grid-gap: 30px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+
+.name{
+    font-family:Arial, Helvetica, sans-serif ;
+    margin-bottom: -20px;
+    margin-left: 25px;
+}
+
+.career{
+    padding-top: -50px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 25px;
+}
+
+img{
+    margin-left: 200px;
+    border-radius: 50%;
+    width: 195px;
+    height: 195px;
+    border: solid rgb(21, 148, 157);
+    padding: 10px;
+}
+
+.name-container{
+    margin: 5% 0 0 500px;
+    background: rgb(201, 224, 238);
+    width: 65%;
+    height: 50%;
+}
+
+.banner{
+    margin: 5% 0 0 -200px;
+    background: rgb(201, 224, 238);
+    width: 120%;
+    height: 50%;
+    overflow: hidden;
+}
+
+.line-left{
+    border-left: solid 2px rgb(21, 148, 157);
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.bottom-bar{
+    width: 60%;
+    height: 38px;
+    background-color: rgb(21, 148, 157);
+}
+
+.cell-icon{
+    font-size: 25px;
+    position: relative;
+    margin-bottom: 25px;
+    margin-right: 10px;
+}
+
+.page{
+    margin-right: 300px;
+}
+
+.contact-header{
+    margin-left: 220px;
+
+}
+
+.phone-icon{
+    margin-left: 220px;
+    color: rgb(21, 148, 157);
+}
+
+.letter-icon{
+    margin-left: 220px;
+    color: rgb(21, 148, 157);
+}
+
+.contact{
+    margin-top: -30px;
+}
+
+.profile{
+    margin-top: -30px;
+}
+
+.social-networks{
+    margin-left: 219px;
+    margin-top: -50px;
+}
+
+.languajes{
+    margin-left: 219px;
+    margin-top: -150px;
+}
+
+.habilities{
+    margin-left: 219px;
+    margin-top: -50px;
+}
+
+.experience{
+    margin-top: -50px;
+}
+
+.academic-formation{
+    margin-top: -50px;
+}
+
+.subtittle{
+    color: rgb(21, 148, 157);
+    margin-bottom: 18px;
+}

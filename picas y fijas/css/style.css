@@ -1,0 +1,105 @@
+*,
+*:before,
+*:after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body{
+  background-color: rgba(229, 232, 232, 1);
+  font-family: 'Arsenal', sans-serif;
+}
+
+.title { margin-top: 25px; }
+
+.subtitle {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+input { 
+  width:400px;
+}
+
+input:focus{
+  border-color: rgba(50, 100, 255, 0.8);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+  outline: 0 none;
+}
+
+#playerNumber {
+  display: inline-flex;
+  border: 1px solid #ccc;
+  color: #333;
+  text-align: center;
+  font-size: 14px;
+  outline: none;
+  padding: .4rem .8rem;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  margin-top: 50px;
+}
+
+table thead th,
+table tbody td {
+  color: rgba(0, 0, 0, 1);;
+  font-size: 14px;
+  padding: .5rem .65rem;
+}
+
+table thead th:not(:last-of-type),
+table tbody td:not(:last-of-type) {
+  border-right: 1px solid #ccc;
+}
+
+table thead tr,
+table tbody tr:not(:last-of-type) {
+  border-bottom: 1px solid #ccc;
+}
+
+.wrapper {
+    width: 450px;   
+    margin: 0 auto;   
+    text-align: center;
+    margin-bottom:  25px;
+}
+
+table {
+  width: 400px;   
+  margin: 0 auto;   
+  text-align: center; 
+}
+
+#ok { color: black; }
+
+
+.result span {
+  display: block;
+  margin-top: 180px;
+  font-size: 110px;
+  font-weight: bold;
+  color: white;
+}
+
+.result {  
+  display: none;  
+  position: absolute;  
+  background: rgba(0, 0, 0, 0.7);  
+  text-align: center;  
+  top: 0;  
+  left: 0; 
+  width: 100%;  
+  height: 100%; 
+}
+
+.result .close { margin-top: 30px; }
+
+.result .close a {
+  color: white;
+  background-color: #f04500; 
+  font-size: 21px;
+  text-decoration: none;
+  border: 3px solid white;
+  padding: 10px 15px;
+  border-radius: 5px;
+}

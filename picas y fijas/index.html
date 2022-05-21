@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Picas y Fijas</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arsenal" rel="stylesheet"> 
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+ <div class="">
+  <div class="wrapper">
+    <h1 class="title">Picas y Fijas</h1>
+    <div class="subtitle">
+      <p>Ingresa <span id="ok">cuatro digitos diferentes </span>y oprima <strong>Enter</strong></p>
+    </div>
+  
+      <section class="group">
+        <input type="number" id="playerNumber" required pattern="[0-9]{4}" autocomplete="off" 
+               title = " Debe ingresar 4 digitos no repetidos "
+        >  
+    </div>
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Número</th>
+            <th>Picas</th>
+            <th>Fijas</th>
+          </tr>
+        </thead>
+       <tbody>  
+
+       </tbody>
+     </table>
+    </div>     
+    
+    <div class="result won">
+      <span>¡Ganaste!</span>
+      <div class="close">
+        <a href="#">Jugar nuevamente</a>
+      </div>
+    </div>  
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="js/functions.js"></script>
+</body>
+</html>
