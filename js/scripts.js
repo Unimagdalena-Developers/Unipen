@@ -1,3 +1,6 @@
+import auth  from '../Login-y-registro/assets/js/auth.js'
+import { onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
+
 window.addEventListener('DOMContentLoaded', event => {
 
     var navbarShrink = function () {
@@ -36,5 +39,20 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     });
+    
+    const signInButton  = document.querySelector('#sign-in-btn')
 
+    onAuthStateChanged(auth,(user)=> {
+        if(user) {
+            signInButton.innerHTML ='<a  class="nav-link" href="/profile" > VER PERFIL</a>'
+
+           
+        }
+        else {
+            signInButton.innerHTML ='<a class="nav-link" href="/Login-y-registro">Iniciar Sesion</a>'
+
+        }
+    })
+  
 });
+
