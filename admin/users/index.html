@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de Usuarios</title>
+    <script src="/js/firebase.js" type="module">   </script>
+    <script src="./scripts/guard-admin-router.js" type="module"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./scripts/helpers.js" type="module"></script>
+    <script src="./scripts/main.js"  type="module"></script>
+</head>
+<body>
+    <div id="container" class="container-sm my-4" style="max-width:500px; margin:auto;">
+        <h1>Users</h1>
+        <table id="table" class="table table-striped"="users-container">
+
+        </table>
+    </div>
+    
+    
+    <div id="loader-container">
+        <div id="loader" class="d-flex align-items-center" style="width:200px; margin:auto; margin-top:50px;" >
+            <strong>Loading...</strong>
+            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+        </div>
+    </div>
+</body>
+</html>

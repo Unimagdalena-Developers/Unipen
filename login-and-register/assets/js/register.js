@@ -9,7 +9,6 @@ formRegister.addEventListener('submit', async (event) => {
     registerBtn.disabled = true
     registerBtn.textContent = 'Verificando...'
     event.preventDefault()
-    console.log(formRegister)
     const values = new FormData(formRegister)
 
     try {
@@ -18,7 +17,10 @@ formRegister.addEventListener('submit', async (event) => {
         await setDoc(doc(collectionRef,userCredentials.user.uid ), {
             id:userCredentials.user.uid,
             name:values.get('name'),
-            photo:'https://firebasestorage.googleapis.com/v0/b/unipen-fe78e.appspot.com/o/profile-photos%2Fprofile-user.svg?alt=media&token=6503cf99-baac-44fe-89c3-f270e717d1a3'
+            email:values.get('email'),
+            photo:'https://firebasestorage.googleapis.com/v0/b/unipen-fe78e.appspot.com/o/profile-photos%2Fprofile-user.svg?alt=media&token=6503cf99-baac-44fe-89c3-f270e717d1a3',
+            isAdmin:false,
+            isActive:true
         })
         document.location.href = '/'
 

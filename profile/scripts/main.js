@@ -17,8 +17,6 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     const profileForm = document.querySelector('#profile-form')
     const emailInput = document.querySelector('#email-input')
     const nameInput = document.querySelector('#name-input')
-/*     const passwordInput = document.querySelector('#password-input')
- */
 
     let user = null;
     let image = null;
@@ -30,7 +28,6 @@ window.addEventListener('DOMContentLoaded', async (event) => {
         emailInput.value = userFromFirebase.email
         nameInput.value = user.name
         container.style.display = "block"
-        console.log(loader)
         loader.style.display = "none"
     })
     backBtn.addEventListener('click', async () => {
@@ -54,22 +51,11 @@ window.addEventListener('DOMContentLoaded', async (event) => {
 
     profileForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-        /* if(passwordInput.value === ''){
-        
-            Swal.fire({
-                title: 'Ingresa la contraseña para actualizar tus datos!',
-        
-                icon: 'error',
-                confirmButtonText: 'Entendido'
-            })
-            return;
-        }  */
+       
         updateBtn.disabled = true;
         updateBtn.textContent = 'Actualizando...';
         const collectionRef = collection(database, 'users')
-        const newData = {
-
-        }
+        const newData = {}
         if (image) {
             const storageRef = ref(storage, `profile-photos/user-${user.uid}/${image.name}`)
     
