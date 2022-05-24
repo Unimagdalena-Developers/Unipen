@@ -1,7 +1,7 @@
-import { signOut,onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
-import auth from "../../Login-y-registro/assets/js/auth.js"
-import { ref,uploadBytes,getDownloadURL   } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js";
-import {doc, getDoc,collection, setDoc   } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
+import { signOut, onAuthStateChanged,updateEmail  } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
+import auth from "../../login-and-register/assets/js/auth.js"
+import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js";
+import { doc, getDoc, collection, setDoc } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
 import database from "../../js/database.js"
 import storage from "../../js/storage.js"
 
@@ -13,59 +13,90 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     const updateBtn = document.querySelector('#update-btn')
     const backBtn = document.querySelector('#back-btn')
     const photoView = document.querySelector('#photo')
-    const loader = document.querySelector('#loader')
+    const loader = document.querySelector('#loader-container')
+    const profileForm = document.querySelector('#profile-form')
+    const emailInput = document.querySelector('#email-input')
+    const nameInput = document.querySelector('#name-input')
+/*     const passwordInput = document.querySelector('#password-input')
+ */
+
     let user = null;
     let image = null;
-
-    onAuthStateChanged(auth, async (userFromFirebase)=> {
+    onAuthStateChanged(auth, async (userFromFirebase) => {
         const document = await getDoc(doc(database, 'users', userFromFirebase.uid))
         user = document.data()
-        image = user.photo
-        photoView.srcset = image
+        
+        photoView.srcset = user.photo
+        emailInput.value = userFromFirebase.email
+        nameInput.value = user.name
         container.style.display = "block"
+        console.log(loader)
         loader.style.display = "none"
     })
-    backBtn.addEventListener('click', async ()=> {
+    backBtn.addEventListener('click', async () => {
         document.location.href = '/'
     })
-    signOutBtn.addEventListener('click', async ()=> {
+    signOutBtn.addEventListener('click', async () => {
         await signOut(auth)
         document.location.href = '/'
     })
-    
-    updateBtn.addEventListener('click', async ()=> {
-        updateBtn.disabled = true;
-        updateBtn.textContent = 'Actualizando...';
-        if(image) {
-            const storageRef = ref(storage,`profile-photos/user-${user.uid}/${image.name}`)
-    
-            uploadBytes(storageRef, image).then(async () => {               
-                const url = await getDownloadURL(storageRef)
-                const collectionRef = collection(database, 'users')
-                await setDoc(doc(collectionRef,user.id ), {
-                    photo:url
-                }, {merge:true})
-                Swal.fire({
-                    title: 'Perfil actualizado!',
-             
-                    icon: 'success',
-                    confirmButtonText: 'Listo'
-                  })
-                updateBtn.disabled = false;
-                updateBtn.textContent = 'Actualizar';
 
-            });
-        }
-    
-    })
-    
-    
-    fileInput.addEventListener('change', async (event)=> {
+
+
+    fileInput.addEventListener('change', async (event) => {
         image = event.target.files[0]
         const reader = new FileReader()
         reader.onload = () => {
-            photoView.srcset= reader.result
+            photoView.srcset = reader.result
         }
         reader.readAsDataURL(image)
+    })
+
+    profileForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        /* if(passwordInput.value === ''){
+        
+            Swal.fire({
+                title: 'Ingresa la contraseña para actualizar tus datos!',
+        
+                icon: 'error',
+                confirmButtonText: 'Entendido'
+            })
+            return;
+        }  */
+        updateBtn.disabled = true;
+        updateBtn.textContent = 'Actualizando...';
+        const collectionRef = collection(database, 'users')
+        const newData = {
+
+        }
+        if (image) {
+            const storageRef = ref(storage, `profile-photos/user-${user.uid}/${image.name}`)
+    
+            await uploadBytes(storageRef, image)
+            const url = await getDownloadURL(storageRef)
+            newData.photo = url
+          
+        }
+        
+        if(emailInput.value != user.email) {
+            await updateEmail(auth.currentUser, emailInput.value)
+        }
+        if(nameInput.value != user.name) {
+            newData.name = nameInput.value
+        }
+
+        if( Object.keys(newData).length !== 0){
+            await setDoc(doc(collectionRef, user.id), newData, { merge: true })
+        }
+    
+        Swal.fire({
+            title: 'Perfil actualizado!',
+    
+            icon: 'success',
+            confirmButtonText: 'Listo'
+        })
+        updateBtn.disabled = false;
+        updateBtn.textContent = 'Actualizar';
     })
 });

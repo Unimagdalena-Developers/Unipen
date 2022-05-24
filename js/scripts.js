@@ -1,4 +1,4 @@
-import auth  from '../Login-y-registro/assets/js/auth.js'
+import auth  from '../login-and-register/assets/js/auth.js'
 import { onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
 
 window.addEventListener('DOMContentLoaded', event => {
@@ -49,7 +49,7 @@ window.addEventListener('DOMContentLoaded', event => {
            
         }
         else {
-            signInButton.innerHTML ='<a class="nav-link" href="/Login-y-registro">Iniciar Sesion</a>'
+            signInButton.innerHTML ='<a class="nav-link" href="/login-and-register">Iniciar Sesion</a>'
 
         }
     })
