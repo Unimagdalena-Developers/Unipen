@@ -73,7 +73,7 @@ window.addEventListener('DOMContentLoaded', async(event) => {
             <div class="portfolio-item">
                 <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal${rent.id}">
                     <div class="portfolio-hover">
-                        <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        <div class="portfolio-hover-content"><i class="fas fa-eye fa-3x"></i></div>
                     </div>
                     <img class="img-fluid" src="${rent.photo}" alt="Rent Photo" />
                 </a>
@@ -94,7 +94,7 @@ window.addEventListener('DOMContentLoaded', async(event) => {
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <div class="modal-body">
-                                <h2 class="text-uppercase">${rent.name}</h2>
+                                <h2 class="text-uppercase mb-3">${rent.name}</h2>
                                 <img class="img-fluid d-block mx-auto" src="${rent.photo}" alt="Rent photo" />
                                 <p>${rent.description}</p>
                                 <ul class="list-inline">
