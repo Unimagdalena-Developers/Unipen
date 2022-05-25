@@ -8,9 +8,14 @@ import storage from "../../js/storage.js"
 const container = document.querySelector('#container')
 container.style.display = "none"
 window.addEventListener('DOMContentLoaded', async (event) => {
+    document.querySelector('#link-post-rent-btn').addEventListener('click', async (event) => {
+        document.location.href = '/post-pension'
+    })
+
     const fileInput = document.querySelector('#file-input')
     const signOutBtn = document.querySelector('#sign-out-btn')
     const updateBtn = document.querySelector('#update-btn')
+
     const backBtn = document.querySelector('#back-btn')
     const photoView = document.querySelector('#photo')
     const loader = document.querySelector('#loader-container')
