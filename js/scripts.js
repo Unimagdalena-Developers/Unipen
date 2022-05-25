@@ -95,7 +95,6 @@ window.addEventListener('DOMContentLoaded', async(event) => {
                         <div class="col-lg-8">
                             <div class="modal-body">
                                 <h2 class="text-uppercase">${rent.name}</h2>
-                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <img class="img-fluid d-block mx-auto" src="${rent.photo}" alt="Rent photo" />
                                 <p>${rent.description}</p>
                                 <ul class="list-inline">
