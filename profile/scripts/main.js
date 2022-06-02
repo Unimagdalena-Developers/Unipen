@@ -11,7 +11,9 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     document.querySelector('#link-post-rent-btn').addEventListener('click', async (event) => {
         document.location.href = '/post-pension'
     })
-
+    document.querySelector('#link-rents-btn').addEventListener('click', async (event) => {
+        document.location.href = '/pensions'
+    })
     const fileInput = document.querySelector('#file-input')
     const signOutBtn = document.querySelector('#sign-out-btn')
     const updateBtn = document.querySelector('#update-btn')

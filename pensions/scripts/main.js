@@ -1,29 +1,33 @@
-import { getUsers,deleteUserFromFirestore } from "./helpers.js"
+import { getRents,deleteRent } from "./helpers.js"
 const loader = document.querySelector('#loader-container');
+
 window.addEventListener('DOMContentLoaded', async () => {
-    async function loadUsers() { 
+    document.querySelector('#back-btn').addEventListener('click',() => document.location.href = '/profile')
+    async function loadRents() { 
         const table = document.querySelector('#table')
-        const querySnapshot = await getUsers()
+        const querySnapshot = await getRents()
         let html = `
             <thead>
                 <tr>
-                    
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Precio</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
         `
         querySnapshot.forEach((doc) => {
-            const user = doc.data()
+            const rent = doc.data()
             html += `
             <tr>
-                
-                <td>${user.name}</td>
-                <td>${user.email}</td>
+                <td>${rent.name}</td>
+                <td>${rent.description}</td>
+                <td>${rent.address}</td>
+                <td>${rent.value}</td>
                 <td>
-                    <button name="${user.id}"  class="btn btn-danger delete-btn"> Eliminar </button>
+                    <button name="${rent.id}"  class="btn btn-danger delete-btn"> Eliminar </button>
                 </td>
             </tr>
     
@@ -33,7 +37,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         table.innerHTML = html
 
     }
-    await loadUsers()
+    await loadRents()
     loader.style.display = 'none'
 
     const deleteBtns = document.querySelectorAll('.delete-btn')
@@ -41,15 +45,15 @@ window.addEventListener('DOMContentLoaded', async () => {
         
         btn.addEventListener('click', async (event) =>{
             const id = event.target.name
-            await deleteUserFromFirestore(id)
+            await deleteRent(id)
             Swal.fire({
-                title: 'Usuario inhabilitado',
+                title: 'Pensión eliminada',
         
                 icon: 'success',
                 confirmButtonText: 'Listo'
             })
             loader.style.display = 'block'
-            await loadUsers()
+            await loadRents()
             loader.style.display = 'none'
         })
     }

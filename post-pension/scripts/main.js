@@ -66,14 +66,15 @@ pensionForm.addEventListener('submit', async (event) => {
             description,
             address,
             value,
-            userId:user.uid
+            userId:user.uid,
+            isActive:true
         }
         const storageRef = ref(storage, `rents-photos/rent-${rentId}/${image.name}`)
     
         await uploadBytes(storageRef, image)
         const url = await getDownloadURL(storageRef)
         data.photo = url
-        await setDoc(doc(collectionRef), data)
+        await setDoc(doc(collectionRef,rentId), data)
         Swal.fire({
             title: 'Pensión publicada!',
     
