@@ -1,11 +1,24 @@
 import { getRents,deleteRent } from "./helpers.js"
+import {  onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
+import auth from "../../login-and-register/assets/js/auth.js"
+
 const loader = document.querySelector('#loader-container');
 
 window.addEventListener('DOMContentLoaded', async () => {
+    let userId = null;
+
+    await(new Promise((resolve, reject) => {
+        
+        onAuthStateChanged(auth, async (userFromFirebase) => {
+            userId =  userFromFirebase.uid
+            resolve()
+        })
+    }))
+
     document.querySelector('#back-btn').addEventListener('click',() => document.location.href = '/profile')
     async function loadRents() { 
         const table = document.querySelector('#table')
-        const querySnapshot = await getRents()
+        const querySnapshot = await getRents(userId)
         let html = `
             <thead>
                 <tr>
