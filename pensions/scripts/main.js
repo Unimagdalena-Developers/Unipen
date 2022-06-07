@@ -40,6 +40,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 <td>${rent.address}</td>
                 <td>${rent.value}</td>
                 <td>
+                    <button name="${rent.id}"  class="btn btn-primary update-btn"> Actualizar </button>
                     <button name="${rent.id}"  class="btn btn-danger delete-btn"> Eliminar </button>
                 </td>
             </tr>
@@ -54,9 +55,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     loader.style.display = 'none'
 
     const deleteBtns = document.querySelectorAll('.delete-btn')
-    for (const btn of deleteBtns) {
-        
-        btn.addEventListener('click', async (event) =>{
+    const updateBtns = document.querySelectorAll('.update-btn')
+    for (let i = 0; i < deleteBtns.length; i++) {
+        deleteBtns[i].addEventListener('click', async (event) =>{
             const id = event.target.name
             await deleteRent(id)
             Swal.fire({
@@ -68,6 +69,11 @@ window.addEventListener('DOMContentLoaded', async () => {
             loader.style.display = 'block'
             await loadRents()
             loader.style.display = 'none'
+        })
+        updateBtns[i].addEventListener('click', async (event) =>{
+            const id = event.target.name
+            localStorage.setItem('rent-id', id)
+            window.location.href = '/pensions/update'
         })
     }
     

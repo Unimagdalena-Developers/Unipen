@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar pensión</title>
+    <script src="/js/firebase.js" type="module">   </script>
+    <script src="/js/guard-router.js" type="module"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js" integrity="sha512-UNM1njAgOFUa74Z0bADwAq8gbTcqZC8Ej4xPSzpnh0l6KMevwvkBvbldF9uR++qKeJ+MOZHRjV1HZjoRvjDfNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="icon" type="image/x-icon" href="/assets/icono.ico" />
+
+</head>
+
+<body>
+    <div id="container" class="container-sm my-4" style="max-width:500px; margin:auto;">
+        <div class="photo-container d-flex justify-content-center">
+            <img class="rounded" id="photo" style="width:150px; height:150px;object-fit:cover" alt="profile" srcset="">
+        </div>
+        <form id="pension-form">
+            <label class="form-label" for="file-input">Foto principal de la pensión:</label>
+            <input class="form-control" id="file-input" type="file" accept="image/*" name="photo">
+            <br>
+            <label class="form-label" for="name-input">Nombre de la pensión:</label>
+            <input class="form-control" id="name-input" type="text" name="name">
+            <br>
+            <label class="form-label" for="description-input">Descripcion:</label>
+            <textarea class="form-control" id="description-input" type="text" name="description">
+            </textarea>
+            <br>
+            <label class="form-label" for="address-input">Dirección:</label>
+            <input class="form-control" id="address-input" type="text" name="address">
+            <br>
+
+            <label class="form-label" for="value-input">Precio:</label>
+            <input class="form-control" id="value-input" type="number" name="value">
+
+            <button class="btn btn-success my-3" type="submit" id="post-btn">Actualizar</button>
+
+        </form>
+
+
+        <button class="btn btn-primary" id="back-btn">Volver</button>
+    </div>
+
+
+    <div id="loader-container">
+        <div id="loader" class="d-flex align-items-center" style="width:200px; margin:auto; margin-top:50px;">
+            <strong>Loading...</strong>
+            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+        </div>
+    </div>
+    <script src="./scripts/main.js" type="module"></script>
+</body>
+
+</html>
