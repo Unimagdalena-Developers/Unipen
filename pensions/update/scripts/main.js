@@ -93,7 +93,6 @@ pensionForm.addEventListener("submit", async (event) => {
       description,
       address,
       value,
-      userId: user.uid,
       isActive: true,
     };
     const storageRef = ref(

@@ -1,16 +1,21 @@
 import { getRents,deleteRent } from "./helpers.js"
 import {  onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
 import auth from "../../login-and-register/assets/js/auth.js"
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
+import database from "../../js/database.js"
 
 const loader = document.querySelector('#loader-container');
 
 window.addEventListener('DOMContentLoaded', async () => {
     let userId = null;
-
+    let isAdmin = false
     await(new Promise((resolve, reject) => {
         
         onAuthStateChanged(auth, async (userFromFirebase) => {
             userId =  userFromFirebase.uid
+            const userDoc = await getDoc(doc(database, 'users', userFromFirebase.uid))
+            const user = userDoc.data()
+            if(user.isAdmin) isAdmin = true
             resolve()
         })
     }))
@@ -18,7 +23,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.querySelector('#back-btn').addEventListener('click',() => document.location.href = '/profile')
     async function loadRents() { 
         const table = document.querySelector('#table')
-        const querySnapshot = await getRents(userId)
+        const querySnapshot = await getRents(userId,isAdmin)
         let html = `
             <thead>
                 <tr>

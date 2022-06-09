@@ -1,5 +1,11 @@
 import { getUsers,deleteUserFromFirestore } from "./helpers.js"
 const loader = document.querySelector('#loader-container');
+document.querySelector('#rents-btn').addEventListener('click',()=> {
+    document.location.href = '/pensions'
+})
+document.querySelector('#back-btn').addEventListener('click',()=> {
+    document.location.href = '/'
+})
 window.addEventListener('DOMContentLoaded', async () => {
     async function loadUsers() { 
         const table = document.querySelector('#table')
