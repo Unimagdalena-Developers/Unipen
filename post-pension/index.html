@@ -16,8 +16,8 @@
 
 </head>
 
-<body>
-    <div id="container" class="container-sm my-4" style="max-width:500px; margin:auto;">
+<body style="background-image: url(bg4.jpg);">
+    <div id="container" class="container-sm my-4" style="max-width:500px; margin:auto;" >
         <div class="photo-container d-flex justify-content-center">
             <img class="rounded" id="photo" style="width:150px; height:150px;object-fit:cover" alt="profile" srcset="">
         </div>
@@ -41,16 +41,17 @@
 
             <button class="btn btn-success my-3" type="submit" id="post-btn">Publicar</button>
 
+            <button class="btn btn-primary" id="back-btn">Volver</button>
         </form>
 
 
-        <button class="btn btn-primary" id="back-btn">Volver</button>
+        
     </div>
 
 
     <div id="loader-container">
-        <div id="loader" class="d-flex align-items-center" style="width:200px; margin:auto; margin-top:50px;">
-            <strong>Loading...</strong>
+        <div id="loader" class="d-flex align-items-center" style="width:200px; margin:auto; margin-top:50px;" >
+            <strong>Publicando...</strong>
             <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
         </div>
     </div>

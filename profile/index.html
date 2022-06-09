@@ -12,8 +12,9 @@
     <link rel="icon" type="image/x-icon" href="/assets/icono.ico" />
     
 </head>
-<body>
-    <div id="container" class="container-sm my-4" style="max-width:500px; margin:auto;">
+<body style="background-image: url(bg4.jpg);">
+    
+    <div id="container" class="container-sm my-4" style="max-width:500px; margin:auto; background-color: #ffc800; border-radius: 2%;">
         <div class="photo-container d-flex justify-content-center">
             <img class="rounded"  id="photo" style="width:150px; height:150px;object-fit:cover" alt="profile" srcset="">
         </div>
@@ -29,18 +30,21 @@
   
             <br>
             <button class="btn btn-success my-3" type="submit" id="update-btn">Actualizar</button>
-            
+            <button class="btn btn-danger" id="sign-out-btn">Cerrar sesión</button>
+            <br>
+            <button class="btn btn-primary" id="link-post-rent-btn">Publicar una pensión</button>
+            <button class="btn btn-primary" id="link-rents-btn">Mis pensiones</button>
+            <button class="btn btn-primary" id="back-btn">Volver</button>    
+            <br>
+            <div class= "" style="background-color: #ffc800;">.</div>
         </form>
-        <button class="btn btn-danger" id="sign-out-btn">Cerrar sesión</button>
-        <button class="btn btn-primary" id="link-post-rent-btn">Publicar una pensión</button>
-        <button class="btn btn-primary" id="link-rents-btn">Mis pensiones</button>
-        <button class="btn btn-primary mt-3" id="back-btn">Volver</button>
+        
     </div>
     
     
-    <div id="loader-container">
+    <div id="loader-container" style="color: #ffc800;">
         <div id="loader" class="d-flex align-items-center" style="width:200px; margin:auto; margin-top:50px;" >
-            <strong>Loading...</strong>
+            <strong>Cargando...</strong>
             <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
         </div>
     </div>
