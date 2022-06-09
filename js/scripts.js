@@ -1,7 +1,8 @@
 import auth  from '../login-and-register/assets/js/auth.js'
 import { onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
-import { getDocs, collection, } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
+import { getDocs, getDoc,collection, } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
 import database  from "./database.js"
+
 window.addEventListener('DOMContentLoaded', async(event) => {
 
     var navbarShrink = function () {
@@ -42,8 +43,10 @@ window.addEventListener('DOMContentLoaded', async(event) => {
     });
     
     const signInButton  = document.querySelector('#sign-in-btn')
-
+    const adminButton  = document.querySelector('#admin-btn')
+console.log(adminButton)
     onAuthStateChanged(auth,(user)=> {
+ 
         if(user) {
             signInButton.innerHTML ='<a  class="nav-link" href="/profile" > VER PERFIL</a>'
 
@@ -51,7 +54,7 @@ window.addEventListener('DOMContentLoaded', async(event) => {
         }
         else {
             signInButton.innerHTML ='<a class="nav-link" href="/login-and-register">Iniciar Sesion</a>'
-
+            adminButton.innerHTML = '<a  class="nav-link" href="/admin/login" > Administrador </a>'
         }
     })
 

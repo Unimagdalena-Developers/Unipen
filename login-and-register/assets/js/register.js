@@ -11,7 +11,7 @@ formRegister.addEventListener('submit', async (event) => {
     event.preventDefault()
     const values = new FormData(formRegister)
 
-    try {
+    try {     
         const userCredentials = await createUserWithEmailAndPassword(auth, values.get('email'), values.get('password'))
         const collectionRef = collection(database, 'users')
         await setDoc(doc(collectionRef,userCredentials.user.uid ), {
