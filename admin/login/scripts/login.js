@@ -16,7 +16,14 @@ formLogin.addEventListener('submit', async (event)=> {
         const userCredentials = await signInWithEmailAndPassword(auth, values.get('email'), values.get('password'))   
         const userDoc = await getDoc(doc(database, 'users', userCredentials.user.uid))
         const user = userDoc.data()
-        if(!user.isAdmin){alert("No eres admin carajo")}
+        if(!user.isAdmin){
+            Swal.fire({
+                title: "No eres administrador",
+          
+                icon: "error",
+                confirmButtonText: "Listo",
+              });
+        }
         document.location.href = '/admin/users'
     } catch (error) {
         console.error(error)
